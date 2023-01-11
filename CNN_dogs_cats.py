@@ -89,4 +89,18 @@ model.fit(X,Y, epochs=1, validation_split=0.1)
 print(model)
 
 
+from keras.preprocessing import  image
+
+myimage = image.load_img(r"C:\Users\Personal\Pictures\Saved Pictures\mycat.jpg", target_size = (120,120))
+
+myimage = image.img_to_array(myimage)
+myimage = np.expand_dims(myimage, axis=0)
+result = model.predict(myimage)
+
+if result[0][0] == 1:
+    print("its a dog")
+else:
+    print("its a cat")
+
+
 
