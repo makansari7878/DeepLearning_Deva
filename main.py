@@ -48,7 +48,7 @@ print(X_test_flattened.shape)
 myloss = tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True)
 
 model = tf.keras.Sequential([tf.keras.layers.Dense(units=10, input_shape=(784,), activation='relu')])
-model.compile(optimizer= "adam", loss= myloss, metrics='accuracy')
+model.compile(optimizer= "sgd", loss= myloss, metrics='accuracy')
 model.fit(X_train_flattened, Y_train, epochs=5)
 
 evaluate = model.evaluate(X_test_flattened, Y_test)
